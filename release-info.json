@@ -1,0 +1,12 @@
+{
+  "version": "1.1.5",
+  "date": "2026-04-30",
+  "downloads": {
+    "mac_arm64": "https://github.com/AloproAgency/wautochat-releases/releases/download/v1.1.5/WAutoChat-1.1.5-arm64.dmg",
+    "mac_x64":   "https://github.com/AloproAgency/wautochat-releases/releases/download/v1.1.5/WAutoChat-1.1.5.dmg",
+    "windows":   "https://github.com/AloproAgency/wautochat-releases/releases/download/v1.1.5/WAutoChat-Setup-1.1.5.exe",
+    "linux":     "https://github.com/AloproAgency/wautochat-releases/releases/download/v1.1.5/WAutoChat-1.1.5.AppImage",
+    "docker":    "ghcr.io/aloproagency/wautochat-desktop:latest"
+  },
+  "release_url": "https://github.com/AloproAgency/wautochat-releases/releases/tag/v1.1.5"
+}

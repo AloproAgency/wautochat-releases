@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WAutoChat — WhatsApp Automation Platform</title>
+  <meta name="description" content="Manage multiple WhatsApp sessions, automate conversations with visual flows, broadcast messages and integrate AI — all from one beautiful desktop app." />
+  <meta property="og:title" content="WAutoChat — WhatsApp Automation Platform" />
+  <meta property="og:description" content="Multi-session WhatsApp management with AI-powered automation flows." />
+  <meta property="og:image" content="assets/og-image.png" />
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">
+        <img src="assets/logo.png" alt="WAutoChat" width="32" height="32" />
+        <span>WAutoChat</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features" data-i18n="nav_features">Features</a></li>
+        <li><a href="#screenshots" data-i18n="nav_screenshots">Screenshots</a></li>
+        <li><a href="#install" data-i18n="nav_install">Install</a></li>
+      </ul>
+      <a class="btn btn-primary btn-sm" href="#install" id="nav-download">
+        <span data-i18n="nav_download">Download</span> <span id="nav-version"></span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <canvas id="bg-canvas"></canvas>
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+      <div class="hero-glow hero-glow-3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="container hero-inner">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span id="hero-version-badge" data-i18n="hero_badge">Latest release</span>
+      </div>
+      <h1 class="hero-title">
+        <span data-i18n="hero_title_1">Automate every WhatsApp conversation.</span><br/>
+        <span class="gradient-text" data-i18n="hero_title_2">At any scale.</span>
+      </h1>
+      <p class="hero-sub" data-i18n="hero_sub">
+        WAutoChat centralizes your sessions, orchestrates AI-powered conversation flows, runs broadcast campaigns and keeps your data on your own infrastructure.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="#install" id="hero-download-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span id="hero-download-label" data-i18n="hero_dl_mac">Download for macOS</span>
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#install" data-i18n="hero_all">
+          All platforms →
+        </a>
+      </div>
+      <div class="hero-install-hint" id="hero-docker-hint">
+        Or deploy with Docker: <code>docker compose up -d</code>
+      </div>
+    </div>
+
+    <div class="hero-screenshot container">
+      <div class="screenshot-frame">
+        <div class="frame-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <div class="screenshot-placeholder">
+          <img src="screenshots/app-main.png" alt="WAutoChat app screenshot" id="hero-screenshot" onerror="this.parentElement.classList.add('no-img')" />
+          <div class="placeholder-label">App screenshot coming soon</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stats strip ── -->
+  <div class="stats-strip">
+    <div class="container stats-inner">
+      <div class="stat">
+        <span class="stat-value" data-i18n="stat_1_val">Multi-session</span>
+        <span class="stat-label" data-i18n="stat_1_lbl">Run several WhatsApp accounts simultaneously</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value" data-i18n="stat_2_val">AI-powered</span>
+        <span class="stat-label" data-i18n="stat_2_lbl">GPT-4, Claude, Gemini — your choice</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value" data-i18n="stat_3_val">Self-hosted</span>
+        <span class="stat-label" data-i18n="stat_3_lbl">Your data, your server, full control</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Features ── -->
+  <section class="features section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label" data-i18n="feat_label">Features</span>
+        <h2 class="section-title" data-i18n="feat_title">Everything you need to automate WhatsApp</h2>
+        <p class="section-sub" data-i18n="feat_sub">Built for teams, solopreneurs and developers who need reliable WhatsApp automation without complexity.</p>
+      </div>
+      <div class="features-grid">
+
+        <div class="feature-card card-wide reveal">
+          <div class="feature-icon green">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </div>
+          <div>
+            <h3 data-i18n="feat_1_title">Multi-session management</h3>
+            <p data-i18n="feat_1_desc">Connect and manage multiple WhatsApp accounts from a single interface. Switch between sessions instantly without logging out.</p>
+          </div>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-icon blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          </div>
+          <h3 data-i18n="feat_2_title">Visual Flow Builder</h3>
+          <p data-i18n="feat_2_desc">Design conversation flows with a drag-and-drop editor. Build chatbots, lead funnels and support trees without writing code.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-icon purple">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M22 2 12 12"/></svg>
+          </div>
+          <h3 data-i18n="feat_3_title">AI Integration</h3>
+          <p data-i18n="feat_3_desc">Connect GPT-4, Claude, Gemini or any OpenAI-compatible API. Let AI handle conversations, classify intents and generate replies.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-icon orange">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 data-i18n="feat_4_title">Broadcast Campaigns</h3>
+          <p data-i18n="feat_4_desc">Send personalized messages to thousands of contacts with smart delays to avoid bans. Track delivery and read rates in real time.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-icon teal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3 data-i18n="feat_5_title">Contact & CRM</h3>
+          <p data-i18n="feat_5_desc">Sync contacts, assign labels, track conversations and manage your customer base — all in one place without third-party tools.</p>
+        </div>
+
+        <div class="feature-card card-wide reveal">
+          <div class="feature-icon red">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+          </div>
+          <div>
+            <h3 data-i18n="feat_6_title">Desktop app + Self-hosted Docker</h3>
+            <p data-i18n="feat_6_desc">Run as a native desktop app on macOS, Windows and Linux — or deploy as a Docker container on your own VPS with one command. Your data never leaves your infrastructure.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Screenshots ── -->
+  <section class="screenshots-section section" id="screenshots">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label" data-i18n="ss_label">Screenshots</span>
+        <h2 class="section-title" data-i18n="ss_title">See it in action</h2>
+      </div>
+      <div class="screenshots-slider">
+        <div class="slides" id="slides">
+          <div class="slide active">
+            <div class="slide-frame">
+              <img src="screenshots/app-main.png" alt="Main dashboard" onerror="this.style.display='none'" />
+              <div class="slide-placeholder">Dashboard — coming soon</div>
+            </div>
+            <p class="slide-caption" data-i18n="ss_cap_1">Main dashboard with session overview</p>
+          </div>
+          <div class="slide">
+            <div class="slide-frame">
+              <img src="screenshots/app-flows.png" alt="Flow builder" onerror="this.style.display='none'" />
+              <div class="slide-placeholder">Flow builder — coming soon</div>
+            </div>
+            <p class="slide-caption" data-i18n="ss_cap_2">Visual flow builder for automation</p>
+          </div>
+          <div class="slide">
+            <div class="slide-frame">
+              <img src="screenshots/app-broadcast.png" alt="Broadcast" onerror="this.style.display='none'" />
+              <div class="slide-placeholder">Broadcast — coming soon</div>
+            </div>
+            <p class="slide-caption" data-i18n="ss_cap_3">Broadcast campaign manager</p>
+          </div>
+          <div class="slide">
+            <div class="slide-frame">
+              <img src="screenshots/app-chat.png" alt="Chat" onerror="this.style.display='none'" />
+              <div class="slide-placeholder">Chat view — coming soon</div>
+            </div>
+            <p class="slide-caption" data-i18n="ss_cap_4">Unified chat inbox across all sessions</p>
+          </div>
+        </div>
+        <div class="slider-controls">
+          <button class="slider-btn" id="prev-btn" aria-label="Previous">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="slider-dots" id="slider-dots"></div>
+          <button class="slider-btn" id="next-btn" aria-label="Next">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Install ── -->
+  <section class="install-section section" id="install">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label" data-i18n="inst_label">Installation</span>
+        <h2 class="section-title" data-i18n="inst_title">Get started in minutes</h2>
+        <p class="section-sub" data-i18n="inst_sub">Choose the installation method that fits your workflow.</p>
+      </div>
+
+      <div class="install-tabs">
+        <button class="tab-btn active" data-tab="mac">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <span data-i18n="inst_tab_mac">macOS</span>
+        </button>
+        <button class="tab-btn" data-tab="windows">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.557L10.354 4.5v7.145H3V5.557zM11.285 4.37L21 3v8.645h-9.715V4.37zM3 12.5h7.354V19.5L3 18.443V12.5zM11.285 12.5H21V21l-9.715-1.37V12.5z"/></svg>
+          <span data-i18n="inst_tab_win">Windows</span>
+        </button>
+        <button class="tab-btn" data-tab="linux">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489.117.779.567 1.563 1.182 2.114 1.65 1.499 3.924 1.599 6.328 1.439.866-.057 1.745-.171 2.647-.329.901-.158 1.823-.39 2.728-.68.905-.291 1.791-.638 2.592-1.042.8-.404 1.515-.864 2.098-1.395.582-.531 1.032-1.129 1.275-1.793.242-.664.263-1.384.038-2.089-.225-.705-.669-1.385-1.281-1.977-.612-.593-1.39-1.098-2.245-1.523-.856-.425-1.789-.771-2.746-1.049-.957-.278-1.93-.492-2.871-.641-.94-.149-1.844-.24-2.668-.277-.823-.037-1.565-.015-2.196.056-.63.071-1.148.201-1.53.389-.195.094-.36.202-.498.321-.137.12-.248.251-.33.39-.083.139-.138.285-.163.434-.025.149-.02.3.015.448.035.148.1.291.195.424.094.133.219.252.373.352.305.2.705.344 1.201.43.497.086 1.09.115 1.768.086.678-.03 1.441-.118 2.275-.264.833-.146 1.733-.349 2.673-.607.94-.258 1.921-.573 2.923-.944l.001.001c.978-.362 1.995-.786 3.01-1.267.515-.24 1.031-.496 1.547-.766.516-.27 1.032-.554 1.546-.85-.514.296-1.03.58-1.546.85-.516.27-1.032.526-1.547.766-1.015.481-2.032.905-3.01 1.267-1.002.371-1.983.686-2.923.944-.94.258-1.84.461-2.673.607-.834.146-1.597.234-2.275.264-.678.029-1.271 0-1.768-.086-.496-.086-.896-.23-1.201-.43-.154-.1-.279-.219-.373-.352-.095-.133-.16-.276-.195-.424-.035-.148-.04-.299-.015-.448.025-.149.08-.295.163-.434.082-.139.193-.27.33-.39.138-.119.303-.227.498-.321.382-.188.9-.318 1.53-.389.631-.071 1.373-.093 2.196-.056.824.037 1.728.128 2.668.277.941.149 1.914.363 2.871.641.957.278 1.89.624 2.746 1.049.855.425 1.633.93 2.245 1.523.612.592 1.056 1.272 1.281 1.977.225.705.204 1.425-.038 2.089-.243.664-.693 1.262-1.275 1.793-.583.531-1.298.991-2.098 1.395-.801.404-1.687.751-2.592 1.042-.905.29-1.827.522-2.728.68-.902.158-1.781.272-2.647.329-2.404.16-4.678.06-6.328-1.439-.615-.551-1.065-1.335-1.182-2.114-.123-.805.009-1.657.287-2.489.589-1.771 1.831-3.47 2.716-4.521.75-1.067.974-1.928 1.05-3.02.065-1.491-1.056-5.965 3.17-6.298.165-.013.325-.021.48-.021z"/></svg>
+          <span data-i18n="inst_tab_linux">Linux</span>
+        </button>
+        <button class="tab-btn" data-tab="docker">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.983 11.078h2.119a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.119a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 0 0 .186-.186V3.574a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 0 0 .186-.186V6.29a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 0 0 .184-.186V6.29a.185.185 0 0 0-.185-.185H8.1a.185.185 0 0 0-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 0 0 .185-.186V6.29a.185.185 0 0 0-.185-.185H5.136a.186.186 0 0 0-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 0 0 .185-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.186.186 0 0 0-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.186.186 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 0 0-.75.748 11.376 11.376 0 0 0 .692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 0 0 3.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288z"/></svg>
+          <span data-i18n="inst_tab_docker">Docker</span>
+        </button>
+      </div>
+
+      <div class="tab-content" id="tab-mac">
+        <div class="install-card">
+          <div class="install-desc">
+            <h3 data-i18n="inst_mac_title">Download for macOS</h3>
+            <p data-i18n="inst_mac_desc">Universal binary — runs natively on both Apple Silicon (M1/M2/M3) and Intel Macs.</p>
+            <div class="install-btns">
+              <a class="btn btn-primary" href="#" id="dl-mac-arm64">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span data-i18n="inst_mac_arm">Apple Silicon (arm64)</span>
+              </a>
+              <a class="btn btn-ghost" href="#" id="dl-mac-x64">
+                <span data-i18n="inst_mac_x64">Intel (x64)</span>
+              </a>
+            </div>
+          </div>
+          <div class="install-steps">
+            <div class="step"><span class="step-n">1</span> <span data-i18n="inst_mac_s1">Download the</span> <code>.dmg</code> file</div>
+            <div class="step"><span class="step-n">2</span> <span data-i18n="inst_mac_s2">Open it and drag WAutoChat to Applications</span></div>
+            <div class="step"><span class="step-n">3</span> <span data-i18n="inst_mac_s3">Launch the app — scan your WhatsApp QR</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content hidden" id="tab-windows">
+        <div class="install-card">
+          <div class="install-desc">
+            <h3 data-i18n="inst_win_title">Download for Windows</h3>
+            <p data-i18n="inst_win_desc">NSIS installer — supports Windows 10 and Windows 11 (x64).</p>
+            <div class="install-btns">
+              <a class="btn btn-primary" href="#" id="dl-windows">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span data-i18n="inst_win_btn">Download .exe</span>
+              </a>
+            </div>
+          </div>
+          <div class="install-steps">
+            <div class="step"><span class="step-n">1</span> <span data-i18n="inst_win_s1">Download and run the</span> <code>.exe</code> installer</div>
+            <div class="step"><span class="step-n">2</span> <span data-i18n="inst_win_s2">If Windows SmartScreen appears, click "More info → Run anyway"</span></div>
+            <div class="step"><span class="step-n">3</span> <span data-i18n="inst_win_s3">Launch WAutoChat and connect your WhatsApp</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content hidden" id="tab-linux">
+        <div class="install-card">
+          <div class="install-desc">
+            <h3 data-i18n="inst_linux_title">Download for Linux</h3>
+            <p data-i18n="inst_linux_desc">AppImage — works on any modern Linux distribution without installation.</p>
+            <div class="install-btns">
+              <a class="btn btn-primary" href="#" id="dl-linux">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span data-i18n="inst_linux_btn">Download .AppImage</span>
+              </a>
+            </div>
+          </div>
+          <div class="install-steps">
+            <div class="step"><span class="step-n">1</span> <span data-i18n="inst_linux_s1">Download the</span> <code>.AppImage</code></div>
+            <div class="step"><span class="step-n">2</span> <span data-i18n="inst_linux_s2">Make it executable:</span> <code>chmod +x WAutoChat-*.AppImage</code></div>
+            <div class="step"><span class="step-n">3</span> <span data-i18n="inst_linux_s3">Run it:</span> <code>./WAutoChat-*.AppImage</code></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content hidden" id="tab-docker">
+        <div class="install-card install-card-docker">
+          <h3 data-i18n="inst_docker_title">Self-host with Docker</h3>
+          <p data-i18n="inst_docker_desc">Deploy WAutoChat on your own server in one command. Includes automatic updates via Watchtower.</p>
+          <div class="code-block-wrapper">
+            <span class="code-label">docker-compose.yml</span>
+            <button class="copy-btn" data-target="compose-code" aria-label="Copy">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy
+            </button>
+            <pre class="code-block" id="compose-code">services:
+  wautochat:
+    image: ghcr.io/aloproagency/wautochat-desktop:latest
+    container_name: wautochat
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - wautochat_data:/data
+    environment:
+      - AUTH_SECRET=your_secret_here   # openssl rand -hex 32
+      - ADMIN_EMAIL=admin@example.com
+      - ADMIN_PASSWORD=your_password
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: wautochat-updater
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: wautochat --interval 3600 --cleanup
+
+volumes:
+  wautochat_data:</pre>
+          </div>
+          <div class="code-block-wrapper" style="margin-top:1rem">
+            <span class="code-label">Deploy</span>
+            <button class="copy-btn" data-target="deploy-code" aria-label="Copy">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy
+            </button>
+            <pre class="code-block" id="deploy-code">docker compose up -d</pre>
+          </div>
+          <div class="docker-note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span data-i18n="inst_docker_note">Watchtower checks for a new image every hour and restarts the container automatically.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-glow"></div>
+        <h2 data-i18n="cta_title">Ready to automate?</h2>
+        <p data-i18n="cta_sub">Download WAutoChat and connect your first WhatsApp session in under 2 minutes.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#install" data-i18n="cta_btn">
+            Get started for free
+          </a>
+          <a class="btn btn-ghost btn-lg" href="https://github.com/AloproAgency/wautochat-desktop/releases/latest" target="_blank" rel="noopener" data-i18n="cta_releases">
+            View all releases →
+          </a>
+        </div>
+        <div class="cta-version" id="cta-version"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="WAutoChat" width="28" height="28" />
+        <span>WAutoChat</span>
+        <span class="footer-version" id="footer-version"></span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/AloproAgency/wautochat-desktop" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/AloproAgency/wautochat-desktop/releases" target="_blank" rel="noopener" data-i18n="footer_releases">Releases</a>
+        <a href="https://github.com/AloproAgency/wautochat-desktop/issues" target="_blank" rel="noopener" data-i18n="footer_issues">Issues</a>
+      </div>
+      <p class="footer-copy">© 2026 Alopro. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

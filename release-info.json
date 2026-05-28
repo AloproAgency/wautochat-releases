@@ -1,0 +1,14 @@
+{
+  "version": "1.2.28",
+  "date": "2026-05-28",
+  "downloads": {
+    "mac_arm64":  "https://github.com/AloproAgency/wautochat-releases/releases/download/v1.2.28/WAutoChat-1.2.28-arm64.dmg",
+    "mac_x64":    "https://github.com/AloproAgency/wautochat-releases/releases/download/v1.2.28/WAutoChat-1.2.28.dmg",
+    "windows":    "https://github.com/AloproAgency/wautochat-releases/releases/download/v1.2.28/WAutoChat-Setup-1.2.28.exe",
+    "linux_deb":  "https://github.com/AloproAgency/wautochat-releases/releases/download/v1.2.28/WAutoChat-1.2.28-amd64.deb",
+    "linux_deb_arm64": "https://github.com/AloproAgency/wautochat-releases/releases/download/v1.2.28/WAutoChat-1.2.28-arm64.deb",
+    "linux":      "https://github.com/AloproAgency/wautochat-releases/releases/download/v1.2.28/WAutoChat-1.2.28.AppImage",
+    "docker":     "ghcr.io/aloproagency/wautochat-releases:latest"
+  },
+  "release_url": "https://github.com/AloproAgency/wautochat-releases/releases/tag/v1.2.28"
+}
